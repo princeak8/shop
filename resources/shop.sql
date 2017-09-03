@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 02, 2017 at 07:58 AM
+-- Generation Time: Sep 03, 2017 at 11:47 AM
 -- Server version: 5.7.9
 -- PHP Version: 7.0.0
 
@@ -19,6 +19,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `shop`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `brands`
+--
+
+DROP TABLE IF EXISTS `brands`;
+CREATE TABLE IF NOT EXISTS `brands` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `logo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -56,19 +70,6 @@ CREATE TABLE IF NOT EXISTS `categories` (
 
 DROP TABLE IF EXISTS `collections`;
 CREATE TABLE IF NOT EXISTS `collections` (
-  `id` int(255) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `companies`
---
-
-DROP TABLE IF EXISTS `companies`;
-CREATE TABLE IF NOT EXISTS `companies` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
@@ -146,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `stocks` (
   `title` varchar(255) NOT NULL,
   `total` int(255) NOT NULL,
   `price` int(255) NOT NULL,
-  `company_id` int(255) NOT NULL,
+  `brand_id` int(255) NOT NULL,
   `location_id` int(255) DEFAULT NULL,
   `color` varchar(50) DEFAULT NULL,
   `description` text,
